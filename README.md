@@ -68,7 +68,7 @@ status: 200
 }
 
 ```
-### Get Adviser List
+### Get Advisor List
 ```
 GET https://advisorapiassignment.herokuapp.com/user/<user_id>/advisor
 ```
@@ -92,7 +92,7 @@ status: 200
 ]
 
 ```
-### Book Adviser Meeting
+### Book Advisor Meeting
 ```
 POST https://advisorapiassignment.herokuapp.com/user/<user_id>/advisor/<advisor_id>
 ```
