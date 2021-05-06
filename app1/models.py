@@ -6,6 +6,9 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from .manager import CustomUserManager
 # Create your models here.
+
+
+#model for custom user auth table
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     name = models.CharField(max_length=500,default="",null=False)
@@ -21,7 +24,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-
+#model for advisor table
 class Advisor(models.Model):
     advisor_name=models.CharField(max_length=500,null=False)
     advisor_photo_url=models.CharField(max_length=1000,null=False)
@@ -30,7 +33,7 @@ class Advisor(models.Model):
         return self.advisor_name
 
 
-
+#model for booking table
 class Bookings(models.Model):
     advisor=models.ForeignKey(Advisor,on_delete=models.CASCADE)
     user=models.ForeignKey(CustomUser,on_delete=models.CASCADE)

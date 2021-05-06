@@ -11,7 +11,7 @@ from .serializers import AdvisorSerializer, BookingSerializer
 # Create your views here.
 
 
-
+#view for adding the new advisor
 class AddAdvisor(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def post(self, request, format=None):
@@ -25,7 +25,7 @@ class AddAdvisor(APIView):
         return Response(status=status.HTTP_200_OK)
 
 
-
+#view for register the new user
 class RegisterUser(APIView):
     permission_classes = [permissions.AllowAny]
     def post(self, request, format=None):
@@ -44,7 +44,7 @@ class RegisterUser(APIView):
             'user_id':user.id            
         })
 
-
+#view for login the user
 class LoginUser(APIView):
     permission_classes = [permissions.AllowAny]
     def post(self, request, format=None):
@@ -70,9 +70,7 @@ class LoginUser(APIView):
             'user_id':user.id   
             })
 
-
-
-
+#view to getlist of advisors 
 class ListAdvisor(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def get(self, request,user_id,format=None):
@@ -88,7 +86,7 @@ class ListAdvisor(APIView):
         
         return Response(advisor_list.data,status=status.HTTP_200_OK)
 
-
+#view for booking the advisor meeting
 class BookAdvisor(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def post(self,request,user_id,advisor_id,format=None):
@@ -103,6 +101,8 @@ class BookAdvisor(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)    
         return Response(status=status.HTTP_200_OK)
 
+
+#view for get list of meetings the with advisor
 class ListBookedAdvisor(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def get(self,request,user_id,format=None):
