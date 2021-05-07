@@ -26,10 +26,11 @@ https://advisorapiassignment.herokuapp.com
 ```
 POST https://advisorapiassignment.herokuapp.com/admin/advisor
 ```
+*only Admin is allowed.
+
 body should have `name` and `photo_url`.
 response will be status.
 
-*only Admin is allowed.
 i.e.
 ```
 status: 200
