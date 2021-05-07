@@ -13,7 +13,7 @@ from .serializers import AdvisorSerializer, BookingSerializer
 
 #view for adding the new advisor
 class AddAdvisor(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAdminUser]
     def post(self, request, format=None):
         try:
             name=request.POST['name']
